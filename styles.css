@@ -1,0 +1,154 @@
+:root {
+  --bg: rgb(15, 13, 19);
+  --bg-player: rgb(42, 33, 65);
+  --light-gray: rgb(225, 225, 230);
+  --seekbar-track-color: rgba(217, 217, 217, 0.3);
+  --seekbar-thumb-color: rgba(217, 217, 217, 0.8);
+  --music-time-color: rgba(196, 196, 204, 0.7);
+  --artist-text-color: rgba(225, 225, 230, 0.67);
+  --white: #fff;
+  --radius: 0.625rem;
+  --transition: 0.3s;
+  --weight-strong: 700;
+  --weight-regular: 400;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 16.625rem 22.375rem;
+  column-gap: 2rem;
+  margin: 1.25rem 0;
+}
+
+@media (max-width: 41.75rem) {
+  html {
+    font-size: 90%;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+}
+
+.player {
+  background-color: var(--bg-player);
+  border-radius: var(--radius);
+}
+.player :is(.infoMusic) .title {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: var(--weight-strong);
+  color: var(--light-gray);
+  margin-bottom: 0.625rem;
+}
+
+.player :is(.infoMusic) .artist {
+  font-size: 1.1875rem;
+  /* font-weight: var(--weight-regular); */
+  color: var(--artist-text-color);
+}
+
+:is(.buttonsPlayer) .icon {
+  font-size: 1.8125rem;
+  color: var(--light-gray);
+}
+:is(.buttonsPlayer) button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player :is(.durationMusic) .seekBar {
+  width: 100%;
+  background-color: var(--seekbar-track-color);
+  height: 0.375rem;
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.625rem;
+}
+.player :is(.durationMusic) .seekBar::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  border-radius: 0.625rem;
+  background-color: var(--seekbar-thumb-color);
+}
+
+.player :is(.durationMusic) .time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.player :is(.durationMusic) .time time {
+  font-size: 0.875rem;
+  line-height: 1.4375rem;
+  color: var(--music-time-color);
+}
+
+.fullPlayer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.8125rem;
+  height: 100%;
+  padding: 2.375rem;
+}
+
+.fullPlayer .buttonsPlayer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sideRight {
+  display: grid;
+  row-gap: 2rem;
+}
+
+.sideRight :is(.player) {
+  padding: 1.8125rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.75rem;
+}
+.sideRight :is(.player) img {
+  max-width: 5.25rem;
+  border-radius: 0.375rem;
+}
+
+.sideRight :is(.headerPlayer) {
+  display: flex;
+  align-items: center;
+  column-gap: 1.8125rem;
+}
+
+.sideRight :is(.buttonsPlayer) {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
