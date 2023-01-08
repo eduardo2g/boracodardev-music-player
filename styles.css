@@ -67,7 +67,6 @@ button {
 
 .player :is(.infoMusic) .artist {
   font-size: 1.1875rem;
-  /* font-weight: var(--weight-regular); */
   color: var(--artist-text-color);
 }
 
